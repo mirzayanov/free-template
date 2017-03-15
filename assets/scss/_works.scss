@@ -1,0 +1,36 @@
+.works{
+    background: $worksBack;
+    .container_max{
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        .container-header.withUnderLine{
+            &::after{
+                @include underLine($briefColor);
+            }
+        }
+
+        .imgWrapper{
+            width: 90%;
+            margin: 0 auto;
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+
+
+    .btn{
+        @include btn($briefColor);
+    }
+}
+
+.pagenator{
+    @include pagenator(18px);
+    li{
+        border-color: $briefColor;
+    }
+    margin: 50px 0 30px 0;
+}

@@ -1,0 +1,158 @@
+body{
+    font-family: Lato;
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+}
+
+.container_max{
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+
+}
+
+.logo{
+    margin-right: auto;
+    font-size: 30px;
+    span{
+        font-weight: 900;
+    }
+}
+
+nav{
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    .nav-link{
+        padding: 0 20px;
+        position: relative;
+        &:not(:last-of-type):after{
+            content: '/';
+            position: relative;
+            right: -20px;
+        }
+    }
+
+    &._small{
+        cursor: pointer;
+        height: 30px;
+        width: 40px;
+        display: none;
+        div{
+            background: white;
+            height: 25%;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+    }
+}
+
+@mixin btn($borderColor){
+    padding: 14px 55px;
+    border: 1px solid $borderColor;
+    text-transform: uppercase;
+    font-size: 16px;
+    display: inline-block;
+    margin: 40px 0;
+}
+
+@mixin underLine($lineColor){
+    content: '';
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: $lineColor content-box;
+    margin-top: 50px;
+    margin: 0 auto;
+    padding: 50px 0  0 0;
+}
+
+@mixin btn_round($btnSize){
+    width: $btnSize;
+    height: $btnSize;
+    border-radius: 100%;
+    box-sizing: border-box;
+    border: 1px solid white;
+}
+
+@mixin forTablets{
+    @media (max-width: $tabletsWidth){
+        @content;
+    }
+}
+
+@mixin forPhones{
+    @media (max-width: $phonesWidth){
+        @content;
+    }
+}
+
+.container-header{
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-top: 50px;
+
+    @include forPhones{
+        font-size: 25px;
+    }
+}
+
+@mixin pagenator($pagenatorBtnSize){
+    cursor: pointer;
+    list-style: none;
+    li{
+        display: inline-block;
+        @include btn-round($pagenatorBtnSize);
+        &:not(:last-of-type){
+            margin-right: 20px;
+        }
+    }
+
+    &-selected{
+        background: $briefColor;
+    }
+}
+
+p{
+    line-height: 1.8;
+}
+
+.links{
+    margin-top: 20px;
+
+    a{
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        &:not(:last-child){
+            margin-right: 20px;
+        }
+
+        &._skype{
+            background: url(../img/icons/skype.png);
+        }
+        &._web{
+
+        }
+        &._twitter{
+
+        }
+        &._google{
+
+        }
+        &._p{
+            height: 60px;
+            width: 60px;
+            box-sizing: border-box;
+            border: 1px solid white;
+            border-radius: 100%;
+            background: url(../img/icons/skype.png) no-repeat center;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.subscribe{
+    background: $subscribeBackColor;
+    color: white;
+    .container_max{
+        flex-flow:column;
+
+        .container-header.withUnderLine{
+            &:after{
+                @include underLine(white);
+            }
+        }
+
+        .formWrapper{
+            display: flex;
+            justify-content: center;
+
+            @include forPhones{
+                padding:0 10px;
+            }
+        }
+
+        form{
+            margin-top: 70px;
+
+            @include forPhones{
+                margin-top: 30px;
+            }
+            box-sizing: border-box;
+            border: 1px solid white;
+            flex:0 1 622px;
+
+            input{
+                display: block;
+                width: 100%;
+                height: 60px;
+                border: 0;
+                &[type="email"]{
+                    font-family: Lato;
+                    font-size: 26px;
+                    color: rgba(255,255,255, .5);
+                    text-align: center;
+                    background: transparent;
+                    border-bottom: 1px solid white;
+                }
+
+                &[type="submit"]{
+                    font-family: Lato;
+                    font-size: 24px;
+                    font-weight: bold;
+                    color:white;
+                    background: #204b93;
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                }
+            }
+        }
+
+        .logo{
+            margin: 70px 0;
+            @include forPhones{
+                margin: 30px;
+            }
+        }
+
+        .links{
+            margin-bottom: 50px;
+            a:not(:last-child){
+                margin-right: 60px;
+                @include forPhones{
+                    margin-right: 20px;
+                }
+            }
+        }
+
+    }
+}

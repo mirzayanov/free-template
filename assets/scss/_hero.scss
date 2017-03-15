@@ -1,0 +1,81 @@
+.hero{
+    height: 1100px;
+    background: url(../img/hero.png) no-repeat center /cover;
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    .sliderWrapper{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        &.sliderWrapper_left{
+            order: 1;
+        }
+        &.sliderWrapper_right{
+            order: 3;
+        }
+
+        .hero-slider{
+            @include btn_round(80px);
+        }
+    }
+
+    .container_max{
+        color: white;
+        align-items: flex-start;
+        order: 2;
+        .hero-logo{
+            text-transform: uppercase;
+            margin-right: auto;
+            h1{
+                font-size: 78px;
+                font-weight: 900;
+            }
+            h2{
+                font-size: 42px;
+                font-weight: bold;
+                margin-left: 20px;
+                text-align: left;
+            }
+        }
+
+        .hero-text{
+            font-size: 30px;
+            width: 45%;
+
+            .withUnderLine{
+                &:after{
+                    @include underLine(white);
+                }
+            }
+        }
+
+        .btn{
+            @include btn(white);
+        }
+    }
+
+    @include forTablets{
+        height: auto;
+        padding-top: 70px;
+
+        & .hero-logo{
+            display: none;
+        }
+        & .hero-text{
+            width: 80% !important;
+        }
+
+        & .container_max{
+            justify-content: center;
+        }
+    }
+
+    @include forPhones{
+        & .hero-text{
+            font-size: 20px !important;
+        }
+    }
+}

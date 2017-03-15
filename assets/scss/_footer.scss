@@ -1,0 +1,28 @@
+footer{
+    background: $headAndFooterColor;
+
+    .container_max{
+        padding: 50px 0;
+        color: rgba(255,255,255, .7);
+        align-items: baseline;
+        flex-flow: row wrap;
+
+        @include forTablets{
+            padding: 10px ;
+            justify-content: center;
+        }
+        nav{
+            margin-right: auto;
+        }
+
+        p{
+            span:first-child{
+                margin-right: 40px;
+                @include forTablets{
+                    margin-right: 0;
+                    display: block;
+                }
+            }
+        }
+    }
+}

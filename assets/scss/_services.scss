@@ -1,0 +1,140 @@
+@mixin triangle($triangleClr){
+    content: '';
+    width: 0px;
+    height: 0px;
+    border: 20px solid;
+    border-color: transparent transparent $triangleClr $triangleClr;
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    transform: rotate(45deg);
+}
+
+@mixin clrAndLogoService($clr,$logo){
+    background: $clr   center;
+}
+
+.services{
+    display: flex;
+    flex-flow: column;
+    h2.withUnderLine{
+        &:after{
+            @include underLine($briefColor);
+        }
+    }
+    .withUnderLine{
+        &:after{
+            @include underLine(white);
+        }
+    }
+
+    .services-list{
+        margin-top: 40px;
+        display: flex;
+        flex-flow: row wrap;
+        color: white;
+
+        &:not(.services-list_bottom) .services-list-item{
+            &:nth-child(1) .service-list-item-name{
+                @include clrAndLogoService(#00c59e,fd);
+                &:before{
+                    @include triangle(#00c59e);
+                    left: -20px;
+                }
+            }
+            &:nth-child(2) .service-list-item-name{
+                @include clrAndLogoService(#df4343,fd);
+                &:before{
+                    @include triangle(#df4343);
+                    left: -20px;
+                }
+            }
+            &:nth-child(3) .service-list-item-name{
+                @include clrAndLogoService(#64b341,fd);
+                &:before{
+                    @include triangle(#64b341);
+                    left: -20px;
+                }
+            }
+        }
+
+        .service-list-item-name{
+            position: relative;
+        }
+
+
+
+        &.services-list_bottom{
+            margin-top: 0;
+            .services-list-item{
+                &:nth-child(1) .service-list-item-name{
+                    @include clrAndLogoService(#874ab6,fd);
+                    &:before{
+                        @include triangle(#874ab6);
+                        right: -20px;
+                        transform: rotate(-135deg);
+                    }
+                }
+                &:nth-child(2) .service-list-item-name{
+                    @include clrAndLogoService(#ffa200,fd);
+                    &:before{
+                        @include triangle(#ffa200);
+                        right: -20px;
+                        transform: rotate(-135deg);
+                    }
+                }
+                &:nth-child(3) .service-list-item-name{
+                    @include clrAndLogoService(#2f84e5,fd);
+                    &:before{
+                        @include triangle(#2f84e5);
+                        right: -20px;
+                        transform: rotate(-135deg);
+                    }
+                }
+            }
+        }
+
+        &-item{
+            display: flex;
+            flex: 1 1 650px;
+
+
+            div{
+                flex: 1;
+                height: 435px;
+            }
+
+            .service-list-item-logo{
+                background: $servicesBack;
+            }
+
+            .service-list-item-name{
+                h3{
+                    line-height: 1.4;
+                    margin: 0 auto;
+                    padding-top: 30%;
+                }
+            }
+        }
+    }
+
+    @include forTablets{
+        &-list{
+            & &-item{
+                flex: 1 1 350px;
+
+                & div{
+                    height:auto;
+                    padding: 30px 0;
+                }
+
+                & .container-header.withUnderLine{
+                    font-size: 20px;
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}
